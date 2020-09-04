@@ -1,3 +1,5 @@
+// Weekly 1 by Mathias Eek
+
 #include <iostream>
 #include <string>
 #include <set>
