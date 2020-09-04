@@ -1,6 +1,3 @@
-// Weekly1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
 #include <string>
 #include <set>
@@ -10,13 +7,15 @@
 int chooseTask;
 int testing;
 
-int menuKey()
+// The following function is for returning to the main menu, so that I don't have to type it out every time
+void menuKey()
 {
-	std::cout << "\nPress a key to go back to the main menu: ";
+	std::cout << "\nPress a key to return to the main menu: ";
 	char something = _getch();
-	return 0;
+	
 }
 
+// The following function is the choices of the menu
 void taskList()
 {
 	system("CLS");
@@ -31,6 +30,7 @@ void taskList()
 	std::cout << "\nType the corresponding number to proceed:\n";
 }
 
+// This function contains Task 1
 int task1()
 {
 	system("CLS");
@@ -68,6 +68,7 @@ int task1()
 	return 0;
 }
 
+// This function contains Task 2
 int task2()
 {
 		system("CLS");
@@ -77,6 +78,7 @@ int task2()
 	std::cout << "\nExcuse me, sir! Do you drink coffe? (y/n): ";
 	std::cin >> input;
 		
+	// Added different ways people could write yes or no
 	if (input == "Yes" || input == "yes" || input == "y" || input == "Y")
 	{
 		system("CLS");
@@ -91,16 +93,18 @@ int task2()
 		menuKey();
 	}
 		
+	// And also added a message and a reset of the function if they type something else
 	else
 	{
 		system("CLS");
 		std::cout << "Fatal error. Press a key to try again.";
 		char something = _getch();
-		task2;
+		task2();
 	}
 	return 0;
 }
 
+// This function contains Task 3
 int task3()
 {
 	system("CLS");
@@ -130,6 +134,8 @@ int task3()
 		std::cout << "\nYou are getting REALLY old!\n";
 		menuKey();
 	}
+
+	// Had to add an easter egg
 	else if (age >= 200)
 	{
 		std::cout << "\n...you are ancient!";
@@ -140,14 +146,63 @@ int task3()
 	return 0;
 }
 
+// This function contains Task 4
 int task4() {
 	system("CLS");
+	int favoriteDrink;
+	std::cout << "\nTask 4 - Poison of Choice\n";
+	std::cout << "\nWhat are your favorite drink?\n";
+	std::cout << "\n1. Coffe";
+	std::cout << "\n2. Tea";
+	std::cout << "\n3. Coca Cola\n";
+	std::cout << "\nSelect between 1 to 3: ";
+	std::cin >> favoriteDrink;
+
+	if (favoriteDrink==1)
+	{
+		std::cout << "\n\nCoffee is delicious\n";
+		menuKey();
+	}
+	else if (favoriteDrink==2)
+	{
+		std::cout << "\nTea gives peace of mind\n";
+		menuKey();
+	}
+
+	else if (favoriteDrink==3)
+	{
+		std::cout << "\nCoke will give you a white smile\n";
+		menuKey();
+	}
+	else
+	{
+		std::cout << "\nThere's something wrong with your answer.";
+		std::cout << "\nPress a key to try again: ";
+
+		char something = _getch();
+		task4();
+	}
 
 	return 0;
 }
 
+// This function contains Task 5
+// Found a code for changing the color of text without additional libraries on the forum on stackowerflow.com: "\033[1;31m*\033[0m"
 int task5() {
 	system("CLS");
+	std::cout << "\nTask 5 - Beautiful Console Art\n\n";
+	std::cout << "     1   2   3   4   5   6\n";
+	std::cout << "    --- --- --- --- --- ---\n";
+	std::cout << "A  : \033[1;31m*\033[0m : \033[1;31m*\033[0m : \033[1;31m*\033[0m : \033[1;31m*\033[0m : \033[1;31m*\033[0m : \033[1;31m*\033[0m :  A\n";
+	std::cout << "B  : \033[1;31m*\033[0m : \033[1;31m*\033[0m : \033[1;31m*\033[0m : \033[1;31m*\033[0m : \033[1;31m*\033[0m : \033[1;31m*\033[0m :  B\n";
+	std::cout << "C  : \033[1;31m*\033[0m : \033[1;31m*\033[0m : \033[1;31m*\033[0m : \033[1;31m*\033[0m : \033[1;31m*\033[0m : \033[1;31m*\033[0m :  C\n";
+	std::cout << "D  : \033[1;31m*\033[0m : \033[1;31m*\033[0m : \033[1;31m*\033[0m : \033[1;31m*\033[0m : \033[1;31m*\033[0m : \033[1;31m*\033[0m :  D\n";
+	std::cout << "    --- --- --- --- --- ---\n";
+	std::cout << "     1   2   3   4   5   6\n\n";
+
+	menuKey();
+
+	
 
 	return 0;
 }
@@ -189,13 +244,3 @@ int main()
 	
 	return 0;
 }
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
